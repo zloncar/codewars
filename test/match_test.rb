@@ -1,5 +1,5 @@
 require 'test/unit'
-require '../lib/match.rb'
+require './lib/match.rb'
 
 class MatchTest < Test::Unit::TestCase
   def test_one
