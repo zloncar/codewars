@@ -13,3 +13,8 @@ def ip_to_int32(ip)
 end
 
 puts ip_to_int32('128.114.17.104')
+
+# # clever
+# def ip_to_int32(ip)
+#   ip.split( '.' ).reduce( 0 ) { |total, p| total * 256 + p.to_i }
+# end
