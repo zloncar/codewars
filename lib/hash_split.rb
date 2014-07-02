@@ -55,3 +55,20 @@ end
 #   raise Error unless (args - hash.keys).empty?
 #   hash.slice_before { |k,v| args.include? k }.map { |a| Hash[a] }
 # end
+
+# and one more good one
+# def split_hash_by_key(hash, *args)
+#   # TODO: complete
+#   args.each do |a|
+#     raise "One of the key given as arguement is incorrect!" unless hash.keys.include?(a)
+#   end
+#   res = [{}]
+
+#   hash.each_pair do |k, v|
+#     res << {} if args.include?(k)
+#     res.last[k] = v
+#   end
+
+#   f = res.select {|e| !e.empty?}
+#   f
+# end
