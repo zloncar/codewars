@@ -49,3 +49,9 @@ class HashSplit < Test::Unit::TestCase
     assert_equal(expected, split_by_keys(hash, :a))
   end
 end
+
+# codewars neat solution
+# def split_hash_by_key(hash, *args)
+#   raise Error unless (args - hash.keys).empty?
+#   hash.slice_before { |k,v| args.include? k }.map { |a| Hash[a] }
+# end
