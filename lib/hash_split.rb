@@ -4,7 +4,7 @@ class HashSplit < Test::Unit::TestCase
   def split_by_keys(hash, *args)
     arr = []
     args.each do |a|
-      raise KeyError, 'no matching key' unless hash.fetch(a)
+      raise unless hash.has_key?(a)
       arr << hash.select do |k, v|
         k.to_s < a.to_s
       end
@@ -14,7 +14,7 @@ class HashSplit < Test::Unit::TestCase
     end
     arr << hash
   rescue
-    error = :exception_handled
+    puts '____Key not found!____'
     arr << hash
   end
 
