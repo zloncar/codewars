@@ -1,13 +1,10 @@
 def int32_to_ip(int32)
-  int32 = int32.to_i
-  q4 = int32%256
-  int32 /= 256
-  q3 = int32%256
-  int32 /= 256
-  q2 = int32%256
-  int32 /= 256
-  q1 = int32%256
-  "#{q1}.#{q2}.#{q3}.#{q4}"
+  a = []
+  (1..4).each do
+    a << (int32%256)
+    int32 /= 256
+  end
+  a.reverse.join('.')
 end
 
-puts int32_to_ip(2154959208)
+puts int32_to_ip(2154959208) # => 128.114.17.104
