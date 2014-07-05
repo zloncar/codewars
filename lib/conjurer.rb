@@ -7,6 +7,5 @@ class Conjurer
   end
 end
 
-block = lambda { (1..5).to_a }
-Conjurer.conjure('blah', &block )
+Conjurer.conjure('blah') { (1..5).to_a }
 puts Conjurer.new.blah
