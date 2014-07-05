@@ -1,9 +1,6 @@
 class Conjurer
-
   def self.conjure(name, foo)
-    define_method name do
-      foo.call
-    end
+    define_method name, foo
   end
 end
 
