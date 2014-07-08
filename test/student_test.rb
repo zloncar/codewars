@@ -1,32 +1,24 @@
 require 'test/unit'
 require '../lib/student.rb'
 
-class StudentTest < Test::Unit::TestCase
-  def test_I
-    a = Student.new('John', 4, 3, 1)
-    b = Student.new('Mark', 1, 4, 3)
-    c = Student.new('Kate', 4, 1, 3)
-    expected = 'Mark'
-    actual = Student.who_has_most
-    Student.null
-    assert_equal(expected, actual)
+phil = Student.new("Phil", 2, 2, 1)
+cam = Student.new("Cameron", 2, 2, 0)
+geoff = Student.new("Geoff", 0, 3, 0)
+
+def most_money(students)
+  totals = {}
+  students.each do |x|
+    total = x.fives*5 + x.tens*10 + x.twenties*20
+    totals[x.name] = total
   end
 
-  def test_II
-    a = Student.new('John', 4, 3, 1)
-    expected = 'John'
-    actual = Student.who_has_most
-    Student.null
-    assert_equal(expected, actual)
-  end
-
-  def test_III
-    a = Student.new('John', 4, 3, 1)
-    a = Student.new('Mark', 4, 3, 1)
-    a = Student.new('Kate', 4, 3, 1)
-    expected = 'All'
-    actual = Student.who_has_most
-    Student.null
-    assert_equal(expected, actual)
+  if totals.values.uniq.size == 1 && totals.size > 1
+    'all'
+  else
+    totals.max_by{ |k,v| k }.first
   end
 end
+
+puts most_money([cam])
+assert_equal('Phil', most_money([cam, geoff, phil]))
+assert_equal('all', most_money([cam, geoff]))
